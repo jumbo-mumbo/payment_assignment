@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "payment-test"
+version = "0.1.0"
+description = "Test assignment for Job"
+authors = ["RussianProgram <kurban.keirmhanov@gmail.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.1.6"
+djangorestframework = "^3.14.0"
+stripe = "^5.1.1"
+django-cors-headers = "^3.13.0"
+python-dotenv = "^0.21.1"
+psycopg2-binary = "^2.9.5"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
