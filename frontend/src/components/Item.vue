@@ -19,9 +19,7 @@
 </template>
 
 /*  Scripts */
-<script src="https://js.stripe.com/v3"></script>
 <script>
-    
     const API_URL = "http://localhost:8000/api/"
     export default {
         data() {
