@@ -1,11 +1,13 @@
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import get_object_or_404
 
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework import status
+from rest_framework import viewsets
 
 from .models import Item, Order
 from . services import perform_checkout_session
@@ -16,10 +18,13 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-class ItemApiView(APIView):
-    def get(self, request, id: int):
+class ItemViewSet(viewsets.ModelViewSet):
+    serializer_class = ItemSerializer
+    queryset = Item.objects.all()
+
+    def retrieve(self, request, pk=None):
         try:
-            item = Item.objects.get(id=id)
+            item = Item.objects.get(id=pk)
             currency_region = item.get_currency_display()
             item_serializer = ItemSerializer(item)
             
@@ -33,7 +38,8 @@ class ItemApiView(APIView):
             return Response(
                 status=status.HTTP_404_NOT_FOUND)
 
-    
+
+
 class OrderApiView(APIView):
     def get(self, request, order_id):
         try:

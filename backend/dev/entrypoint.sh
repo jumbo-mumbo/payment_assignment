@@ -39,6 +39,7 @@ done
 python manage.py collectstatic --noinput  
 python manage.py makemigrations  
 python manage.py migrate
+pytest
 python manage.py loaddata dev/data_sample.json
 
 exec "$@"
