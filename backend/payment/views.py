@@ -10,7 +10,7 @@ from rest_framework import status
 from rest_framework import viewsets
 
 from .models import Item, Order
-from . services import perform_checkout_session
+from .services import perform_checkout_session
 from .serializers import ItemSerializer, OrderSerialiser
 
 import stripe

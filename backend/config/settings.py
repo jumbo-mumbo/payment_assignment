@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     # Apps
     "payment",
     
-   
 ]
 
 MIDDLEWARE = [
