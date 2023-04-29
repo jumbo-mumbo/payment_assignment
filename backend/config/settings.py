@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     
     # Third-party lib's
     "corsheaders",
-    #"rest_framework"
+    "rest_framework"
 ]
 
 MIDDLEWARE = [
